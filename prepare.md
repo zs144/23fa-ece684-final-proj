@@ -28,6 +28,8 @@
 ### Models Overview
 - An article on "5 Powerful Text Summarization Techniques in Python" ([link](https://www.turing.com/kb/5-powerful-text-summarization-techniques-in-python)).
 
+- PapersWithCode leaderboard ([link](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail)) for models (mostly **DL-based** models) and their performance (ROUGE score) on CNN-DailyMail News dataset.
+
 
 ### Evaluation Metrics
 - An Medium article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-rouge-metric-by-examples-f179cc285499)) explaining what is the GRUGE metric, a measurement commonly used to evaluate how well the generated summary is matched with the ground truth. It also mentions BLUE metric in the companion article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-bleu-metric-by-examples-df015ca73a86)) and compare the two. [**Comments**: I think we can try both later.]
