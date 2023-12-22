@@ -1,3 +1,17 @@
+## Plan
+### Data
+- BBC News dataset from Kaggle ([link](https://www.kaggle.com/datasets/pariza/bbc-news-summary/data))
+- CNN-DailyMail News dataset from Kaggle ([link](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail))
+
+### Methods
+- Method 1 (baseline): extractive + frequency-based sentence scoring
+- Method 2: extractive + DL-based methods (there are some examples in the "Code" section of the two above Kaggle pages)
+- Method 3: TODO
+
+### Evaluation
+- Metric 1: ROUGE
+- Metric 2: TODO
+
 ## Useful Resources
 
 ### End-to-End Hands-on Guide
