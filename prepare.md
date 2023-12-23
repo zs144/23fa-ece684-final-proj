@@ -28,10 +28,10 @@
 ### Models Overview
 - An article on "5 Powerful Text Summarization Techniques in Python" ([link](https://www.turing.com/kb/5-powerful-text-summarization-techniques-in-python)).
 
-- PapersWithCode leaderboard ([link](https://www.kaggle.com/datasets/gowrishankarp/newspaper-text-summarization-cnn-dailymail)) for models (mostly **DL-based** models) and their performance (ROUGE score) on CNN-DailyMail News dataset.
+- PapersWithCode leaderboard ([link](https://paperswithcode.com/sota/document-summarization-on-cnn-daily-mail)) for models (mostly **DL-based** models) and their performance (ROUGE score) on CNN-DailyMail News dataset.
 
 
 ### Evaluation Metrics
-- An Medium article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-rouge-metric-by-examples-f179cc285499)) explaining what is the GRUGE metric, a measurement commonly used to evaluate how well the generated summary is matched with the ground truth. It also mentions BLUE metric in the companion article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-bleu-metric-by-examples-df015ca73a86)) and compare the two. [**Comments**: I think we can try both later.]
+- An Medium article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-rouge-metric-by-examples-f179cc285499)) explaining what is the ROUGE metric, a measurement commonly used to evaluate how well the generated summary is matched with the ground truth. It also mentions BLUE metric in the companion article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-bleu-metric-by-examples-df015ca73a86)) and compare the two. [**Comments**: I think we can try both later.]
 
 - An Medium article ([link](https://fabianofalcao.medium.com/metrics-for-evaluating-summarization-of-texts-performed-by-transformers-how-to-evaluate-the-b3ce68a309c3)) going through some most popular metrics used to evaluate the quality of summaries, including ROUGE, BLEU, BERTScore, and METEOR. Python packages and functions to compute these metrics are provided at the end of each metric's section. [**Comments**: we need consider both syntactical and semantics matches]
