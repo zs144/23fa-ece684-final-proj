@@ -1,0 +1,33 @@
+Bootstrap: docker
+From: python:3.8-slim
+
+%help
+    This container includes libraries for NLP tasks, evaluation metrics, and deep learning models using PyTorch and Hugging Face's Transformers.
+
+%post
+    # Update and install basic tools
+    apt-get update && apt-get install -y \
+        build-essential \
+        wget \
+        unzip
+
+    # Install PyTorch - GPU Compatible version
+   # pip install torch==1.11.0+cu113 torchvision==0.12.0+cu113 torchaudio==0.11.0 --extra-index-url https://download.pytorch.org/whl/cu113
+     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+    # Install Transformers
+    pip install transformers
+
+    # Install other Python dependencies
+    pip install pandas numpy \
+        scikit-learn nltk matplotlib \
+        rouge bert-score
+
+    # Download necessary NLTK data
+    python -m nltk.downloader stopwords wordnet
+
+%environment
+    export LC_ALL=C.UTF-8
+    export LANG=C.UTF-8
+
+%runscript
+    exec python "$@"
