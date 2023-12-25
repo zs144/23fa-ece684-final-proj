@@ -10,9 +10,14 @@ from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
 
 
 
-
-
 def summarize_llm(text, model_name):
+    """ Returns the summary of the text using the pre-trained transformer model.
+    Parameters :
+        - text (str): a string of text needs to be summarized.
+        - model_name (str): name of the pre-trained transformer model.
+    Returns:
+        summary (str): a string of summary
+    """
 
     # Replace with the model of your choice
     tokenizer = AutoTokenizer.from_pretrained(model_name)
