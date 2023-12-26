@@ -18,7 +18,7 @@ import bert_score
 ## METEOR score
 nltk.download('wordnet')
 from nltk.translate.meteor_score import meteor_score
-from utils import summarize,  load_dataset, summarize_llm
+from utils import summarize,  load_dataset, summarize_llm, summarize_llm_finetuned_model
 import torch
 import time
 import os
@@ -38,9 +38,13 @@ else:
 
 if __name__== '__main__'   :
 
-    model_name = "t5-small"
+    model_name = "t5-small"   #t5-small "facebook/bart-large-cnn"
+    if '/' in model_name:
+        save_name = model_name.replace('/', '_')
+    else:
+        save_name = model_name
     data_path = f'/home/ld258/projects/nlp/project/dataset/cnn_dailymail/'
-    save_path = f'/home/ld258/projects/nlp/project/results/'
+    save_path = f'/home/ld258/projects/nlp/project/results/{model_name}/'
     if not os.path.exists(save_path):
         os.makedirs(save_path)
 
@@ -57,7 +61,10 @@ if __name__== '__main__'   :
     for i in range(len(df_test)):
         start_time = time.time()
         current_id = df_test['id'][i]
-        hyps_summary = summarize_llm(df_test['article'][i], model_name)
+        if 'cnn' in model_name:
+            hyps_summary = summarize_llm_finetuned_model(df_test['article'][i], model_name)
+        else:
+            hyps_summary = summarize_llm(df_test['article'][i], model_name)
         refs_summary = df_test['highlights'][i]
 
         rogue_score = rouge.get_scores(hyps=hyps_summary, refs=refs_summary)
@@ -69,7 +76,7 @@ if __name__== '__main__'   :
         df.loc[current_id] = save_data
         logging.info(f"Inference and score computation for single text: {time.time() - start_time:.2f} seconds")
 
-        df.to_csv(f"{save_path}/{model_name}_summarizer.csv")
+        df.to_csv(f"{save_path}/{save_name}_summary.csv")
 
 
 

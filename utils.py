@@ -6,7 +6,32 @@ import nltk
 nltk.download("stopwords")
 nltk.download('punkt')
 import pandas as pd
-from transformers import AutoTokenizer, AutoModelForSeq2SeqLM
+from transformers import AutoTokenizer, AutoModelForSeq2SeqLM, T5Tokenizer, T5ForConditionalGeneration, BartTokenizer, BartForConditionalGeneration
+
+
+
+
+def summarize_llm_finetuned_model(text, model_name):
+    """ Returns the summary of the text using the pre-trained transformer model.
+    Parameters :
+        - text (str): a string of text needs to be summarized.
+        - model_name (str): name of the pre-trained transformer model.
+    Returns:
+        summary (str): a string of summary
+    """
+
+    if 'bart' in model_name.lower():
+        tokenizer = BartTokenizer.from_pretrained(model_name)
+        model = BartForConditionalGeneration.from_pretrained(model_name)
+
+        # Encode the text and generate summary
+        inputs = tokenizer([text], max_length=1024, return_tensors='pt', truncation=True)
+        summary_ids = model.generate(inputs['input_ids'], max_length=150, min_length=40, length_penalty=2.0, num_beams=4, early_stopping=True)
+
+        # Decode and print the summary
+        summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
+
+    return summary
 
 
 
@@ -19,13 +44,24 @@ def summarize_llm(text, model_name):
         summary (str): a string of summary
     """
 
-    # Replace with the model of your choice
-    tokenizer = AutoTokenizer.from_pretrained(model_name)
-    model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
-    # Encode and generate summary
-    inputs = tokenizer.encode("summarize: " + text, return_tensors="pt", max_length=512, truncation=True)
+     # Initialize tokenizer and model based on the given model name
+    if 't5' in model_name.lower():
+        tokenizer = T5Tokenizer.from_pretrained(model_name)
+        model = T5ForConditionalGeneration.from_pretrained(model_name)
+
+
+    elif 'bart' in model_name.lower():
+        tokenizer = BartTokenizer.from_pretrained(model_name)
+        model = BartForConditionalGeneration.from_pretrained(model_name)
+
+
+    else:
+        # Default to using Auto classes for tokenizer and model
+        tokenizer = AutoTokenizer.from_pretrained(model_name)
+        model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+
+    inputs = tokenizer.encode("summarize: " + text, return_tensors="pt", max_length=1024, truncation=True)
     summary_ids = model.generate(inputs, max_length=150, min_length=40, length_penalty=2.0, num_beams=4, early_stopping=True)
-    # Decode and print the summary
     summary = tokenizer.decode(summary_ids[0], skip_special_tokens=True)
 
     return summary
