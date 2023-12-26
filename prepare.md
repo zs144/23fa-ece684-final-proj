@@ -24,12 +24,16 @@
 - A HuggingFace tutorial ([link](https://huggingface.co/learn/nlp-course/chapter7/5?fw=pt#fine-tuning-mt5-with-accelerate
 )) on summarization with every step included (and `PyTorch` / `TensorFlow` implementations!).
 
+- A comprehensive guide ([link](https://www.analyticsvidhya.com/blog/2019/06/comprehensive-guide-text-summarization-using-deep-learning-python/)) to text summarization using deep learning in Python (Keras).
+
 
 ### Models Overview
 - An article on "5 Powerful Text Summarization Techniques in Python" ([link](https://www.turing.com/kb/5-powerful-text-summarization-techniques-in-python)).
 
 - PapersWithCode leaderboard ([link](https://paperswithcode.com/sota/document-summarization-on-cnn-daily-mail)) for models (mostly **DL-based** models) and their performance (ROUGE score) on CNN-DailyMail News dataset.
 
+### Word Embedding
+- Pre-trained word vectors provided by GloVe ([link](https://nlp.stanford.edu/projects/glove/)).
 
 ### Evaluation Metrics
 - An Medium article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-rouge-metric-by-examples-f179cc285499)) explaining what is the ROUGE metric, a measurement commonly used to evaluate how well the generated summary is matched with the ground truth. It also mentions BLUE metric in the companion article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-bleu-metric-by-examples-df015ca73a86)) and compare the two. [**Comments**: I think we can try both later.]
