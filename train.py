@@ -18,10 +18,10 @@ metric = load_metric("rouge")
 # Load dataset
 dataset = load_dataset("cnn_dailymail", '3.0.0')
 
-subset_size_train = 1000
-subset_size_validation = 1000
-train_subset = dataset["train"].select(range(subset_size_train))
-validation_subset = dataset["validation"].select(range(subset_size_validation))
+# subset_size_train = 1000
+# subset_size_validation = 1000
+# train_subset = dataset["train"].select(range(subset_size_train))
+# validation_subset = dataset["validation"].select(range(subset_size_validation))
 
 # Model and Tokenizer
 model_name = 't5-small'
@@ -80,8 +80,10 @@ def preprocess_function(examples):
     return model_inputs
 
 
-tokenized_train_subset = train_subset.map(preprocess_function, batched=True)
-tokenized_validation_subset = validation_subset.map(preprocess_function, batched=True)
+tokenized_datasets =  dataset.map(preprocess_function, batched=True)
+
+
+# tokenized_validation_subset = validation_subset.map(preprocess_function, batched=True)
 
 
 # tokenized_datasets = dataset.map(preprocess_function, batched=True)
@@ -105,8 +107,8 @@ training_args = TrainingArguments(
 trainer = Trainer(
     model=model,
     args=training_args,
-    train_dataset=tokenized_train_subset,
-    eval_dataset=tokenized_validation_subset,
+    train_dataset=tokenized_datasets["train"],
+    eval_dataset=tokenized_datasets["validation"],
    compute_metrics=compute_metrics,
    preprocess_logits_for_metrics=preprocess_logits_for_metrics
 )
