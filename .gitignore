@@ -1,8 +1,10 @@
 /data/cnn_dailymail/
-/dataset/cnn_dailymail/
 __pycache__
 .DS_Store
 run_script.sub
+<<<<<<< HEAD
 .nfs000000000020de380000032d
 /results/
 method2_RNN/word_vectors
+=======
+>>>>>>> bc76315a718d6135be75aa18a66c061c4cc7252b
