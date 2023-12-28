@@ -89,18 +89,43 @@ tokenized_datasets =  dataset.map(preprocess_function, batched=True)
 # tokenized_datasets = dataset.map(preprocess_function, batched=True)
 
 # Define Training Arguments
+# training_args = TrainingArguments(
+#     output_dir="/scratch/railabs/ld258/output/summarizer_models/results_x",
+
+#     logging_dir='/scratch/railabs/ld258/output/summarizer_models/logs',  # Directory for TensorBoard logs
+#     logging_strategy="steps",
+#     logging_steps=100,  # Log every 10 steps
+#     evaluation_strategy="steps",
+#     eval_steps=500,  # Evaluate every 50 steps
+#     # evaluation_strategy="epoch",  # Evaluate at the end of each epoch
+#     save_strategy="steps",        # Save checkpoints at the end of each epoch
+#     learning_rate=2e-5,
+#     per_device_train_batch_size=64,
+#     per_device_eval_batch_size=16,
+#     num_train_epochs=50,
+#     weight_decay=0.01,
+#     load_best_model_at_end=True,  # Load the best model at the end of training
+#     metric_for_best_model="rouge1",  # Specify the metric to use for best model (change as needed)
+#     greater_is_better=True,  # Set to True if higher metric score is better
+# )
 training_args = TrainingArguments(
-    output_dir="/scratch/railabs/ld258/output/summarizer_models/results",
-    evaluation_strategy="epoch",  # Evaluate at the end of each epoch
-    save_strategy="epoch",        # Save checkpoints at the end of each epoch
+    output_dir="/scratch/railabs/ld258/output/summarizer_models/results_x",
+    logging_dir='/scratch/railabs/ld258/output/summarizer_models/logs',
+    logging_strategy="steps",
+    logging_steps=100,
+    evaluation_strategy="steps",  # Aligned with save_strategy
+    eval_steps=500,  # Evaluate every 500 steps
+    save_strategy="steps",  # Changed to 'steps'
+    save_steps=500,  # Save every 500 steps (can align with eval_steps)
     learning_rate=2e-5,
-    per_device_train_batch_size=16,
-    per_device_eval_batch_size=8,
-    num_train_epochs=3,
+    per_device_train_batch_size=64,
+    per_device_eval_batch_size=16,
+    num_train_epochs=50,
     weight_decay=0.01,
-    load_best_model_at_end=True,  # Load the best model at the end of training
-    metric_for_best_model="rouge1",  # Specify the metric to use for best model (change as needed)
-    greater_is_better=True,  # Set to True if higher metric score is better
+    load_best_model_at_end=True,
+    metric_for_best_model="rouge1",
+    greater_is_better=True,
+    save_total_limit=1  # Keep only a limited number of checkpoints
 )
 
 # Initialize Trainer

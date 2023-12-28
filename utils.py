@@ -35,7 +35,7 @@ def summarize_llm_finetuned_model(text, model_name):
 
 
 
-def summarize_llm(text, model_name):
+def summarize_llm(text, model_name, model_path = None, trained_locally = False):
     """ Returns the summary of the text using the pre-trained transformer model.
     Parameters :
         - text (str): a string of text needs to be summarized.
@@ -47,8 +47,10 @@ def summarize_llm(text, model_name):
      # Initialize tokenizer and model based on the given model name
     if 't5' in model_name.lower():
         tokenizer = T5Tokenizer.from_pretrained(model_name)
-        model = T5ForConditionalGeneration.from_pretrained(model_name)
-
+        if trained_locally:
+            model = T5ForConditionalGeneration.from_pretrained(model_path)
+        else:
+            model = T5ForConditionalGeneration.from_pretrained(model_name)
 
     elif 'bart' in model_name.lower():
         tokenizer = BartTokenizer.from_pretrained(model_name)
