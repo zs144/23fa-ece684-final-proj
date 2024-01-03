@@ -34,6 +34,7 @@
 
 ### Word Embedding
 - Pre-trained word vectors provided by GloVe ([link](https://nlp.stanford.edu/projects/glove/)).
+- A quick guide on how to load a pre-trained word embedding layer ([link](https://medium.com/mlearning-ai/load-pre-trained-glove-embeddings-in-torch-nn-embedding-layer-in-under-2-minutes-f5af8f57416a)).
 
 ### Evaluation Metrics
 - An Medium article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-rouge-metric-by-examples-f179cc285499)) explaining what is the ROUGE metric, a measurement commonly used to evaluate how well the generated summary is matched with the ground truth. It also mentions BLUE metric in the companion article ([link](https://medium.com/nlplanet/two-minutes-nlp-learn-the-bleu-metric-by-examples-df015ca73a86)) and compare the two. [**Comments**: I think we can try both later.]
