@@ -3,4 +3,4 @@ __pycache__
 .DS_Store
 run_script.sub
 .nfs000000000020de380000032d
-/method2_RNN
+/method2_distilBERT/models
