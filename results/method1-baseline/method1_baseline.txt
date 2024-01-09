@@ -1,0 +1,12 @@
+================================================================================
+Results on cnn_dailynews dataset
+
+Mean ROUGE1 score (F1) on testset = 0.21843467591662605
+Mean ROUGE2 score (F1) on testset = 0.053493738359772204
+Mean ROUGEL score (F1) on testset = 0.2030058201913942
+
+Mean BLEU score on testset = 0.024751087643839768
+
+# TODO: Mean BERT score on testset = ?
+
+Mean METEOR score on testset = 0.17557991382725843
