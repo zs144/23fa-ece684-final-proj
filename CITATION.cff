@@ -1,0 +1,28 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 2023Fa ECE684 (Natural Language Processing) Final Project
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Zion
+    family-names: Sheng
+    email: zion.sheng@duke.edu
+  - given-names: Lavsen
+    family-names: Dahal
+    email: lavsen.dahal@duke.edu
+repository-code: 'https://github.com/zs144/23fa-ece684-final-proj'
+abstract: >-
+  Comparative Analysis of Text Summarization Techniques: A
+  Focused Case Study on the CNN/DailyMail Dataset
+keywords:
+  - NLP
+  - Text summarization
+  - Deep Learning
+  - Transformer
+  - Text encoding
+  - Sequence Generation
+license: MIT
