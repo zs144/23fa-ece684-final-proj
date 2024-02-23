@@ -1,6 +1,6 @@
 bert_score==0.3.13
 datasets==2.16.1
-gradio==4.13.0
+gradio==4.19.2
 nltk==3.8.1
 numpy==1.26.3
 packaging==23.2
